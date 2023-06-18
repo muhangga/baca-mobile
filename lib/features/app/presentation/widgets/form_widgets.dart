@@ -1,3 +1,4 @@
+import 'package:baca_project_frontend/core/theme.dart';
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatelessWidget {
@@ -15,7 +16,12 @@ class FormWidget extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Text(title),
+        Text(
+          title,
+          style: formTitleTextStyle.copyWith(
+            fontWeight: light,
+          ),
+        ),
         const SizedBox(
           height: 10,
         ),
@@ -30,6 +36,7 @@ class FormWidget extends StatelessWidget {
               borderSide: BorderSide(color: Colors.orange, width: 2),
             ),
             hintText: 'Masukan ${title.toLowerCase()}',
+            hintStyle: greyTextStyle,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           ),
