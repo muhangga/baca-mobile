@@ -1,4 +1,6 @@
 import 'package:baca_project_frontend/core/theme.dart';
+import 'package:baca_project_frontend/features/app/presentation/pages/level_page.dart';
+import 'package:flutter/services.dart';
 
 import 'features/app/presentation/pages/login_page.dart';
 import 'features/app/presentation/pages/register_page.dart';
@@ -7,7 +9,16 @@ import 'package:flutter/material.dart';
 import 'features/app/presentation/pages/home_page.dart';
 
 void main() {
+  _setStatusBarColor();
   runApp(const MyApp());
+}
+
+_setStatusBarColor() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: barColor,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -26,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/home': (context) => HomePage(),
+        '/level': (context) => const LevelPage(),
       },
     );
   }

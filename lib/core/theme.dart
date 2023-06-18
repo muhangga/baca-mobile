@@ -10,9 +10,15 @@ const greyColor = Color(0xffBCBEBE);
 const greyColor2 = Color(0xffBCBEBE);
 const orangeColor2 = Color(0xffFEB100);
 const buttonColor = Color(0xffF2B32C);
+const barColor = Color(0xff3400AF);
 
 TextStyle headerTextStyle = TextStyle(
   color: blueColor,
+  fontFamily: 'Super Bubble',
+);
+
+TextStyle headerOrangeTextStyle = TextStyle(
+  color: orangeColor,
   fontFamily: 'Super Bubble',
 );
 
