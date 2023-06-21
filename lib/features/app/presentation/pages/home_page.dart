@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage>
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, '/level'),
+                  onTap: () => Navigator.pushNamed(context, '/game'),
                   child: Text("Klik untuk memulai",
                       style: blackTextStyle.copyWith(
                         fontSize: 22,

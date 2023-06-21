@@ -1,4 +1,5 @@
 import 'package:baca_project_frontend/core/theme.dart';
+import 'package:baca_project_frontend/features/app/presentation/pages/game_page.dart';
 import 'package:baca_project_frontend/features/app/presentation/pages/level_page.dart';
 import 'package:flutter/services.dart';
 
@@ -31,13 +32,15 @@ class MyApp extends StatelessWidget {
       title: 'Baca Baca',
       theme: ThemeData(
         scaffoldBackgroundColor: whiteColor,
+        primarySwatch: Colors.yellow,
       ),
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
-        '/home': (context) => HomePage(),
+        '/home': (context) => const HomePage(),
         '/level': (context) => const LevelPage(),
+        '/game': (context) => const GamePage(),
       },
     );
   }
