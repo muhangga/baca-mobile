@@ -1,8 +1,51 @@
+import 'dart:async';
+
 import 'package:baca_project_frontend/core/theme.dart';
 import 'package:flutter/material.dart';
 
-class GamePage extends StatelessWidget {
+class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
+
+  @override
+  State<GamePage> createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  int _initialCounter = 0;
+
+  void startCountdown() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_initialCounter > 0) {
+          _initialCounter--;
+        } else {
+          timer.cancel();
+          _initialCounter = 3;
+          startSecondCountdown();
+        }
+      });
+    });
+  }
+
+  void startSecondCountdown() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_initialCounter > 0) {
+          _initialCounter--;
+        } else if (_initialCounter == 0) {
+          timer.cancel();
+          _initialCounter = 10;
+          startCountdown();
+        }
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startCountdown();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +156,7 @@ class GamePage extends StatelessWidget {
             color: const Color(0xffFCB200),
             child: Center(
               child: Text(
-                "START!",
+                _initialCounter > 0 ? _initialCounter.toString() : "START!",
                 style: blackTextStyle.copyWith(fontSize: 35, fontWeight: bold),
               ),
             ),
