@@ -1,5 +1,5 @@
-import 'package:baca_project_frontend/core/theme.dart';
-import 'package:baca_project_frontend/features/app/presentation/widgets/button_level.dart';
+import '../.././../../core/theme.dart';
+import '../../../../../features/app/presentation/widgets/button_level.dart';
 import 'package:flutter/material.dart';
 
 class LevelPage extends StatelessWidget {
@@ -41,7 +41,6 @@ class LevelPage extends StatelessWidget {
                   height: 20,
                 ),
                 Wrap(
-                  // bagi 2 level
                   spacing: 20,
                   runSpacing: 20,
                   children: [

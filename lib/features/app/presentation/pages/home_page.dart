@@ -1,10 +1,37 @@
-import 'package:baca_project_frontend/core/theme.dart';
-import 'package:baca_project_frontend/features/app/presentation/widgets/button_level.dart';
-import 'package:baca_project_frontend/features/app/presentation/widgets/home_title_widgets.dart';
+import '../../../../core/theme.dart';
+import '../../../../features/app/presentation/widgets/button_level.dart';
+import '../../../../features/app/presentation/widgets/home_title_widgets.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  AnimationController? _controller;
+  Animation<Offset>? offsetAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    offsetAnimation = Tween<Offset>(
+      begin: Offset.zero,
+      end: const Offset(1, 0.0),
+    ).animate(CurvedAnimation(
+      parent: _controller!,
+      curve: Curves.linear,
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +64,14 @@ class HomePage extends StatelessWidget {
                         'assets/images/house.png',
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 130),
-                      child: Image.asset(
-                        'assets/images/dinosaurus.png',
-                        width: 150,
+                    SlideTransition(
+                      position: offsetAnimation!,
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 130),
+                        child: Image.asset(
+                          'assets/images/dinosaurus.png',
+                          width: 150,
+                        ),
                       ),
                     ),
                   ],

@@ -1,11 +1,7 @@
-import 'package:baca_project_frontend/core/theme.dart';
-import 'package:baca_project_frontend/features/app/presentation/pages/home_page.dart';
-import 'package:baca_project_frontend/features/app/presentation/pages/register_page.dart';
-import 'package:baca_project_frontend/features/app/presentation/widgets/button_orange_image.dart';
-import 'package:baca_project_frontend/features/app/presentation/widgets/button_widgets.dart';
-import 'package:baca_project_frontend/features/app/presentation/widgets/form_widgets.dart';
+import '../../../../core/theme.dart';
+import '../../../../features/app/presentation/widgets/button_orange_image.dart';
+import '../../../../features/app/presentation/widgets/form_widgets.dart';
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
